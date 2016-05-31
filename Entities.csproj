@@ -1,0 +1,182 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{5ABCC548-EF86-4113-A1E9-A1D90457FE15}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Entities</RootNamespace>
+    <AssemblyName>Entities</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>sms_converted.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Bases\Context\IUnitOfWork.cs" />
+    <Compile Include="Bases\Models\BaseModel.cs" />
+    <Compile Include="Bases\Repositories\BaseRepository.cs" />
+    <Compile Include="Bases\Services\IConsult.cs" />
+    <Compile Include="Bases\Services\BaseService.cs" />
+    <Compile Include="Bases\Services\IBaseService.cs" />
+    <Compile Include="EntityContext.cs" />
+    <Compile Include="Interfaces\Models\ISimsModel.cs" />
+    <Compile Include="Interfaces\Models\IAgendasMensagensModel.cs" />
+    <Compile Include="Bases\Models\IBaseModel.cs" />
+    <Compile Include="Interfaces\Models\ICodigosPromocionaisModel.cs" />
+    <Compile Include="Interfaces\Models\IConfiguracoesModel.cs" />
+    <Compile Include="Interfaces\Models\IContatosMensagensModel.cs" />
+    <Compile Include="Interfaces\Models\IContatosModel.cs" />
+    <Compile Include="Interfaces\Models\IGruposContatosModel.cs" />
+    <Compile Include="Interfaces\Models\IGruposMensagensModel.cs" />
+    <Compile Include="Interfaces\Models\IGruposModel.cs" />
+    <Compile Include="Interfaces\Models\ILicencasModel.cs" />
+    <Compile Include="Interfaces\Models\IMensagensDisparosModel.cs" />
+    <Compile Include="Interfaces\Models\IMensagensModel.cs" />
+    <Compile Include="Interfaces\Models\IPromocoes.cs" />
+    <Compile Include="Interfaces\Models\IUsuariosAcessosModel.cs" />
+    <Compile Include="Interfaces\Models\IUsuariosModel.cs" />
+    <Compile Include="Interfaces\Repositories\ISimsRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IAgendasMensagensRepository.cs" />
+    <Compile Include="Bases\Repositories\IBaseRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ICodigosPromocionaisRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IConfiguracoesRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IContatosMensagensRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IContatosRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGruposContatosRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGruposMensagensRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IGruposRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ILicencasRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMensagensDisparosRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IMensagensRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IPromocoesRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuariosAcessosRepository.cs" />
+    <Compile Include="Interfaces\Repositories\IUsuariosRepository.cs" />
+    <Compile Include="Interfaces\Services\ISimsService.cs" />
+    <Compile Include="Interfaces\Services\IPromocoesService.cs" />
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Models\Sims.cs" />
+    <Compile Include="Models\AgendasMensagens.cs" />
+    <Compile Include="Models\CodigosPromocionais.cs" />
+    <Compile Include="Models\Configuracoes.cs" />
+    <Compile Include="Models\Contatos.cs" />
+    <Compile Include="Models\ContatosMensagens.cs" />
+    <Compile Include="Models\Grupos.cs" />
+    <Compile Include="Models\GruposContatos.cs" />
+    <Compile Include="Models\GruposContatosReport.cs" />
+    <Compile Include="Models\GruposMensagens.cs" />
+    <Compile Include="Models\Licencas.cs" />
+    <Compile Include="Models\Mensagens.cs" />
+    <Compile Include="Models\MensagensDisparos.cs" />
+    <Compile Include="Models\MensagensDisparosReport.cs" />
+    <Compile Include="Models\Promocoes.cs" />
+    <Compile Include="Models\Usuarios.cs" />
+    <Compile Include="Models\UsuariosAcessos.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\SimsRepository.cs" />
+    <Compile Include="Repositories\AgendasMensagensRepository.cs" />
+    <Compile Include="Repositories\CodigosPromocionaisRepository.cs" />
+    <Compile Include="Repositories\ConfiguracoesRepository.cs" />
+    <Compile Include="Repositories\ContatosMensagensRepository.cs" />
+    <Compile Include="Repositories\ContatosRepository.cs" />
+    <Compile Include="Repositories\GruposContatosRepository.cs" />
+    <Compile Include="Repositories\GruposMensangesRepository.cs" />
+    <Compile Include="Repositories\GruposRepository.cs" />
+    <Compile Include="Repositories\LicencasRepository.cs" />
+    <Compile Include="Repositories\MensagensDisparosRepository.cs" />
+    <Compile Include="Repositories\MensagensRepository.cs" />
+    <Compile Include="Repositories\PromocoesRepository.cs" />
+    <Compile Include="Repositories\UsuariosAcessosRepository.cs" />
+    <Compile Include="Repositories\UsuariosRepository.cs" />
+    <Compile Include="Interfaces\Services\IAgendasMensagensService.cs" />
+    <Compile Include="Interfaces\Services\ICodigosPromossionaisService.cs" />
+    <Compile Include="Interfaces\Services\IConfiguracoesService.cs" />
+    <Compile Include="Interfaces\Services\IContatosMensagensService.cs" />
+    <Compile Include="Interfaces\Services\IContatosService.cs" />
+    <Compile Include="Interfaces\Services\IGruposContatosService.cs" />
+    <Compile Include="Interfaces\Services\IGruposMensagensService.cs" />
+    <Compile Include="Interfaces\Services\IGruposService.cs" />
+    <Compile Include="Interfaces\Services\ILicencasService.cs" />
+    <Compile Include="Interfaces\Services\IMensagensDisparosService.cs" />
+    <Compile Include="Interfaces\Services\IMensagensService.cs" />
+    <Compile Include="Interfaces\Services\IUsuariosAcessosService.cs" />
+    <Compile Include="Interfaces\Services\IUsuariosService.cs" />
+    <Compile Include="Services\SimsService.cs" />
+    <Compile Include="Services\AgendasMensagensService.cs" />
+    <Compile Include="Services\CodigosPromocionaisService.cs" />
+    <Compile Include="Services\ConfiguracoesService.cs" />
+    <Compile Include="Services\ContatosMensagensService.cs" />
+    <Compile Include="Services\ContatosService.cs" />
+    <Compile Include="Services\GruposContatosService.cs" />
+    <Compile Include="Services\GruposMensagensService.cs" />
+    <Compile Include="Services\GruposService.cs" />
+    <Compile Include="Services\LicencasService.cs" />
+    <Compile Include="Services\MensagensDisparosService.cs" />
+    <Compile Include="Services\MensagensService.cs" />
+    <Compile Include="Services\PromocoesService.cs" />
+    <Compile Include="Services\UsuariosAcessosService.cs" />
+    <Compile Include="Services\UsuariosService.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="sms_converted.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
