@@ -1,5 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
+using System.Data.Entity.Core;
+using System.Data.Entity.Core.Common.EntitySql;
 using System.Linq;
 using Entities.Bases.Services;
 using Entities.Interfaces.Services;
@@ -39,6 +42,48 @@ namespace Entities.Services
                 default:
                     return List().Where(i => i.Status.Equals(1)).ToList();
             }
+        }
+
+        public new void Add(Sims item)
+        {
+            string sim = item.Sim;
+
+            ICollection<Sims> teste = getByData(sim);
+            if (teste.Count > 0)
+            {
+                return;
+            }
+            base.Add(item);
+
+            UpdateSetting("disparos", "0");
+        }
+
+        public ICollection<Sims> getByData(string sim)
+        {
+            return List().Where(i => i.Sim.Equals(sim) && i.DataAtual.Equals(DateTime.Today)).ToList();
+        }
+
+        public Sims getBySim(string sim)
+        {
+            Sims entity;
+            try
+            {
+                entity = List().First(i => i.Sim.Equals(sim) && i.DataAtual.Equals(DateTime.Today));
+                return entity;
+            }
+            catch (EntityException ex)
+            {
+                throw ex;
+            }
+        }
+
+        public void UpdateSetting(string key, string value)
+        {
+            Configuration configuration = ConfigurationManager.OpenExeConfiguration(ConfigurationUserLevel.None);
+            configuration.AppSettings.Settings[key].Value = value;
+            configuration.Save(ConfigurationSaveMode.Modified);
+
+            ConfigurationManager.RefreshSection("appSettings");
         }
     }
 }

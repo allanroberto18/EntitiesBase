@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{5ABCC548-EF86-4113-A1E9-A1D90457FE15}</ProjectGuid>
+    <ProjectGuid>{449A1D9A-DCBE-4FB3-8A0B-E6FEF1D01020}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Entities</RootNamespace>
@@ -29,9 +29,6 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
-  <PropertyGroup>
-    <ApplicationIcon>sms_converted.ico</ApplicationIcon>
-  </PropertyGroup>
   <ItemGroup>
     <Reference Include="CryptSharp, Version=2.1.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\CryptSharpOfficial.2.1.0.0\lib\CryptSharp.dll</HintPath>
@@ -47,9 +44,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Runtime.Serialization" />
-    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -60,14 +56,14 @@
   <ItemGroup>
     <Compile Include="Bases\Context\IUnitOfWork.cs" />
     <Compile Include="Bases\Models\BaseModel.cs" />
+    <Compile Include="Bases\Models\IBaseModel.cs" />
     <Compile Include="Bases\Repositories\BaseRepository.cs" />
-    <Compile Include="Bases\Services\IConsult.cs" />
+    <Compile Include="Bases\Repositories\IBaseRepository.cs" />
     <Compile Include="Bases\Services\BaseService.cs" />
     <Compile Include="Bases\Services\IBaseService.cs" />
+    <Compile Include="Bases\Services\IConsult.cs" />
     <Compile Include="EntityContext.cs" />
-    <Compile Include="Interfaces\Models\ISimsModel.cs" />
     <Compile Include="Interfaces\Models\IAgendasMensagensModel.cs" />
-    <Compile Include="Bases\Models\IBaseModel.cs" />
     <Compile Include="Interfaces\Models\ICodigosPromocionaisModel.cs" />
     <Compile Include="Interfaces\Models\IConfiguracoesModel.cs" />
     <Compile Include="Interfaces\Models\IContatosMensagensModel.cs" />
@@ -79,11 +75,10 @@
     <Compile Include="Interfaces\Models\IMensagensDisparosModel.cs" />
     <Compile Include="Interfaces\Models\IMensagensModel.cs" />
     <Compile Include="Interfaces\Models\IPromocoes.cs" />
+    <Compile Include="Interfaces\Models\ISimsModel.cs" />
     <Compile Include="Interfaces\Models\IUsuariosAcessosModel.cs" />
     <Compile Include="Interfaces\Models\IUsuariosModel.cs" />
-    <Compile Include="Interfaces\Repositories\ISimsRepository.cs" />
     <Compile Include="Interfaces\Repositories\IAgendasMensagensRepository.cs" />
-    <Compile Include="Bases\Repositories\IBaseRepository.cs" />
     <Compile Include="Interfaces\Repositories\ICodigosPromocionaisRepository.cs" />
     <Compile Include="Interfaces\Repositories\IConfiguracoesRepository.cs" />
     <Compile Include="Interfaces\Repositories\IContatosMensagensRepository.cs" />
@@ -95,12 +90,25 @@
     <Compile Include="Interfaces\Repositories\IMensagensDisparosRepository.cs" />
     <Compile Include="Interfaces\Repositories\IMensagensRepository.cs" />
     <Compile Include="Interfaces\Repositories\IPromocoesRepository.cs" />
+    <Compile Include="Interfaces\Repositories\ISimsRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuariosAcessosRepository.cs" />
     <Compile Include="Interfaces\Repositories\IUsuariosRepository.cs" />
-    <Compile Include="Interfaces\Services\ISimsService.cs" />
+    <Compile Include="Interfaces\Services\IAgendasMensagensService.cs" />
+    <Compile Include="Interfaces\Services\ICodigosPromossionaisService.cs" />
+    <Compile Include="Interfaces\Services\IConfiguracoesService.cs" />
+    <Compile Include="Interfaces\Services\IContatosMensagensService.cs" />
+    <Compile Include="Interfaces\Services\IContatosService.cs" />
+    <Compile Include="Interfaces\Services\IGruposContatosService.cs" />
+    <Compile Include="Interfaces\Services\IGruposMensagensService.cs" />
+    <Compile Include="Interfaces\Services\IGruposService.cs" />
+    <Compile Include="Interfaces\Services\ILicencasService.cs" />
+    <Compile Include="Interfaces\Services\IMensagensDisparosService.cs" />
+    <Compile Include="Interfaces\Services\IMensagensService.cs" />
     <Compile Include="Interfaces\Services\IPromocoesService.cs" />
+    <Compile Include="Interfaces\Services\ISimsService.cs" />
+    <Compile Include="Interfaces\Services\IUsuariosAcessosService.cs" />
+    <Compile Include="Interfaces\Services\IUsuariosService.cs" />
     <Compile Include="Migrations\Configuration.cs" />
-    <Compile Include="Models\Sims.cs" />
     <Compile Include="Models\AgendasMensagens.cs" />
     <Compile Include="Models\CodigosPromocionais.cs" />
     <Compile Include="Models\Configuracoes.cs" />
@@ -115,10 +123,10 @@
     <Compile Include="Models\MensagensDisparos.cs" />
     <Compile Include="Models\MensagensDisparosReport.cs" />
     <Compile Include="Models\Promocoes.cs" />
+    <Compile Include="Models\Sims.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Models\UsuariosAcessos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repositories\SimsRepository.cs" />
     <Compile Include="Repositories\AgendasMensagensRepository.cs" />
     <Compile Include="Repositories\CodigosPromocionaisRepository.cs" />
     <Compile Include="Repositories\ConfiguracoesRepository.cs" />
@@ -131,22 +139,9 @@
     <Compile Include="Repositories\MensagensDisparosRepository.cs" />
     <Compile Include="Repositories\MensagensRepository.cs" />
     <Compile Include="Repositories\PromocoesRepository.cs" />
+    <Compile Include="Repositories\SimsRepository.cs" />
     <Compile Include="Repositories\UsuariosAcessosRepository.cs" />
     <Compile Include="Repositories\UsuariosRepository.cs" />
-    <Compile Include="Interfaces\Services\IAgendasMensagensService.cs" />
-    <Compile Include="Interfaces\Services\ICodigosPromossionaisService.cs" />
-    <Compile Include="Interfaces\Services\IConfiguracoesService.cs" />
-    <Compile Include="Interfaces\Services\IContatosMensagensService.cs" />
-    <Compile Include="Interfaces\Services\IContatosService.cs" />
-    <Compile Include="Interfaces\Services\IGruposContatosService.cs" />
-    <Compile Include="Interfaces\Services\IGruposMensagensService.cs" />
-    <Compile Include="Interfaces\Services\IGruposService.cs" />
-    <Compile Include="Interfaces\Services\ILicencasService.cs" />
-    <Compile Include="Interfaces\Services\IMensagensDisparosService.cs" />
-    <Compile Include="Interfaces\Services\IMensagensService.cs" />
-    <Compile Include="Interfaces\Services\IUsuariosAcessosService.cs" />
-    <Compile Include="Interfaces\Services\IUsuariosService.cs" />
-    <Compile Include="Services\SimsService.cs" />
     <Compile Include="Services\AgendasMensagensService.cs" />
     <Compile Include="Services\CodigosPromocionaisService.cs" />
     <Compile Include="Services\ConfiguracoesService.cs" />
@@ -159,15 +154,16 @@
     <Compile Include="Services\MensagensDisparosService.cs" />
     <Compile Include="Services\MensagensService.cs" />
     <Compile Include="Services\PromocoesService.cs" />
+    <Compile Include="Services\SimsService.cs" />
     <Compile Include="Services\UsuariosAcessosService.cs" />
     <Compile Include="Services\UsuariosService.cs" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="App.config">
-      <SubType>Designer</SubType>
-    </None>
+    <None Include="App.config" />
     <None Include="packages.config" />
+    <None Include="Properties\DataSources\Entities.Models.GruposContatosReport.datasource" />
   </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <Content Include="sms_converted.ico" />
   </ItemGroup>
