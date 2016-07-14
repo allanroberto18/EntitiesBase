@@ -1,4 +1,5 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
 using Entities.Bases.Context;
 using Entities.Models;
 
@@ -9,7 +10,7 @@ namespace Entities
         public EntityContext() 
             : base("name=EntityContext")
         {
-            
+            //Database.SetInitializer<EntityContext>(null);
         }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
