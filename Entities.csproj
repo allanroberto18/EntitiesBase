@@ -4,12 +4,12 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{449A1D9A-DCBE-4FB3-8A0B-E6FEF1D01020}</ProjectGuid>
+    <ProjectGuid>{73E72F86-B825-420D-8B73-6C3D0A2AFA37}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>Entities</RootNamespace>
     <AssemblyName>Entities</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
@@ -44,7 +44,8 @@
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
-    <Reference Include="System.configuration" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Configuration.Install" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -63,6 +64,7 @@
     <Compile Include="Bases\Services\IBaseService.cs" />
     <Compile Include="Bases\Services\IConsult.cs" />
     <Compile Include="EntityContext.cs" />
+    <Compile Include="EntityContextInitializer.cs" />
     <Compile Include="Interfaces\Models\IAgendasMensagensModel.cs" />
     <Compile Include="Interfaces\Models\ICodigosPromocionaisModel.cs" />
     <Compile Include="Interfaces\Models\IConfiguracoesModel.cs" />
@@ -108,7 +110,6 @@
     <Compile Include="Interfaces\Services\ISimsService.cs" />
     <Compile Include="Interfaces\Services\IUsuariosAcessosService.cs" />
     <Compile Include="Interfaces\Services\IUsuariosService.cs" />
-    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AgendasMensagens.cs" />
     <Compile Include="Models\CodigosPromocionais.cs" />
     <Compile Include="Models\Configuracoes.cs" />
@@ -124,6 +125,7 @@
     <Compile Include="Models\MensagensDisparosReport.cs" />
     <Compile Include="Models\Promocoes.cs" />
     <Compile Include="Models\Sims.cs" />
+    <Compile Include="Models\SimsMensagens.cs" />
     <Compile Include="Models\Usuarios.cs" />
     <Compile Include="Models\UsuariosAcessos.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -161,11 +163,6 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
-    <None Include="Properties\DataSources\Entities.Models.GruposContatosReport.datasource" />
-  </ItemGroup>
-  <ItemGroup />
-  <ItemGroup>
-    <Content Include="sms_converted.ico" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
